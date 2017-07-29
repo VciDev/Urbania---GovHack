@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html>
+  <title>Urbania</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="urban_art_data.json"></script>
+  <script src="scripts.js" type="text/javascript"></script>
+  <link rel="stylesheet" href="style.css">
+
+
+</head>
+<body>
+<!--Navbar-->
+	<nav class="navbar navbar-inverse navbar-fixed-top" id="top-navbar">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+
+				<a href="" class="navbar-brand">Govhack 2017</a>
+			</div> <!--End of header-->
+
+			<div class="collapse navbar-collapse" id="navbar-collapse">
+
+				<ul class="nav navbar-nav">
+					<li><a href="#home">Home</a></li>
+					<li><a href="#gallery">Gallery</a></li>
+					<li><a href="#events">Upcoming Events</a></li>
+					<li><a href="#map">Map</a></li>
+				</ul>
+			</div>
+		</div> <!-- End of container-->
+	</nav><!-- End of Nav bar -->
+
+	<!-- Jumbotron -->
+	<div class="jumbotron">
+		<div class="container text-center">
+      <div id="bannerinfo">
+			     <h1>URBANIA</h1>
+			     <p> Discover and explore urban art throughout Hobart as well as local events, festivals and more!</p>
+      </div>
+      <ul></ul>
+      <button>Click me</button>
+      <script>
+      $("Click me").click(function(){
+        $.getJSON("urban_art_data.json", function(obj) {
+          $.each(obj, function(key, value) {
+            $("ul").append("<li>"+value.URL_1+"</li>")
+          })
+        })
+      })
+      </script>
+		</div>
+	</div> <!-- End of Jumbotron -->
+	<div class="container">
+		<section>
+			<div class="page-header" id="home">
+				<h2>Upcoming Events in Winter | <small> Festivals, art and more! </small> </h2>
+			</div>
+			<div class="row">
+				<div class="col-lg-4">
+					<blockquote>
+            <div id=#bq_info>
+                    <a href="https://darkmofo.net.au/">Dark Mofo<img src="./images/monafoma_img.jpg" width=300, height=150 /></a>
+                    <p></p>
+                    <p> The Museum of Old and New Art: Festival of Music and Art is one of Tasmania's largest art and music festivals, with Dark Mofo being held in winter version!</p>
+                    <p></p>
+            </div>
+          <a href="https://darkmofo.net.au/">More information</a>
+					</blockquote>
+				</div>
+				<div class="col-lg-4">
+					<blockquote>
+						<a href="https://darkmofo.net.au/">Festival of Voices<img src="./images/FoV.jpg" width=300, height=150 /></a>
+              <p></p>
+              <p>This festival of voices brings people together during the winter season to sing and can keep warm with a massive bonfire taking place in Salamanca!</p>
+              <p></p>
+              <a href="https://festivalofvoices.com/">More Information</a>
+					</blockquote>
+				</div>
+				<div class="col-lg-4">
+					<blockquote>
+						<a href="https://darkmofo.net.au/">Bay of Fires Art Festival<img src="./images/BoF.jpg" width=300, height=150 /></a>
+            <p></p>
+            <p>In the East Coast of Tasmania, this art festival celebrates winter and all it brings with it with open studios, workshops and events thoughout the day!</p>
+            <p></p>
+            <a href="http://www.bayoffireswinterartsfestival.com.au/">More Information</a>
+					</blockquote>
+				</div>
+			</div> <!--End of row-->
+      <hr>
+      <form action="" class="form-inline" align="center">
+        <h3> Keep up-to-date</h3>
+        <p> Sign up to receive updates on upcoming events in Tasmania!</p>
+        <div class="form-group">
+          <label for="subscription"> Subscribe </label>
+          <input type="text" class="form-control" id="subscription" placeholder="your name">
+        </div>
+        <div class="form-group">
+          <label for="email">Email address </label>
+          <input type="text" class="form-control" id="email" placeholder="Enter your email">
+        </div>
+        <button type="submit" class="btn btn-info">
+          <span id="#email" class="glyphicon glyphicon-envelope"> Submit</span>
+        </button>
+        <hr>
+		</section>
+	</div> <!-- End of container-->
+
+<div class="container">
+  <section>
+    <div class="row">
+  <div class="column">
+    <img src="http://hccapps.hobartcity.com.au/gis/PublicArt/IMG_0098.JPG" onclick="openModal();currentSlide(1)" class="hover-shadow">
+  </div>
+  <div class="column">
+    <img src="http://hccapps.hobartcity.com.au/gis/PublicArt/IMG_0092.JPG" onclick="openModal();currentSlide(2)" class="hover-shadow">
+  </div>
+  <div class="column">
+    <img src="http://hccapps.hobartcity.com.au/gis/PublicArt/IMG_0091.JPG" onclick="openModal();currentSlide(3)" class="hover-shadow">
+  </div>
+  <div class="column">
+    <img src="http://hccapps.hobartcity.com.au/gis/PublicArt/IMG_0094.JPG" onclick="openModal();currentSlide(4)" class="hover-shadow">
+  </div>
+</div>
+
+<div id="myModal" class="modal">
+  <span class="close cursor" onclick="closeModal()">&times;</span>
+  <div class="modal-content">
+
+    <div class="mySlides">
+      <div class="numbertext">1 / 4</div>
+        <img src="img_nature_wide.jpg" style="width:100%">
+    </div>
+
+    <div class="mySlides">
+      <div class="numbertext">2 / 4</div>
+        <img src="img_fjords_wide.jpg" style="width:100%">
+    </div>
+
+    <div class="mySlides">
+      <div class="numbertext">3 / 4</div>
+        <img src="img_mountains_wide.jpg" style="width:100%">
+    </div>
+
+    <div class="mySlides">
+      <div class="numbertext">4 / 4</div>
+        <img src="img_lights_wide.jpg" style="width:100%">
+    </div>
+
+    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+    <div class="caption-container">
+      <p id="caption"></p>
+    </div>
+
+    <div class="column">
+      <img class="demo" src="img1.jpg" onclick="currentSlide(1)" alt="Nature">
+    </div>
+
+    <div class="column">
+      <img class="demo" src="img2.jpg" onclick="currentSlide(2)" alt="Trolltunga">
+    </div>
+
+    <div class="column">
+      <img class="demo" src="img3.jpg" onclick="currentSlide(3)" alt="Mountains">
+    </div>
+
+    <div class="column">
+      <img class="demo" src="img4.jpg" onclick="currentSlide(4)" alt="Lights">
+    </div>
+  </div>
+</div>
+</div>
+
+	<!-- Gallery -->
+	<section>
+		<div class="well">
+			<div class="container text-center" id="gallery">
+				<h3> Gallery</h3>
+        <div class="carousel slide" id="slides-carousel" data-ride="carousel">
+  				<ol class="carousel-indicators">
+  					<li data-target="#slides-carousel" data-slide-to="0" class="active"></li>
+  					<li data-target="#slides-carousel" data-slide-to="1"></li>
+  					<li data-target="#slides-carousel" data-slide-to="2"></li>
+  					<li data-target="#slides-carousel" data-slide-to="3"></li>
+  				</ol>
+  				<div class="carousel-inner">
+  					<div class="item active">
+  						<img src="http://hccapps.hobartcity.com.au/gis/PublicArt/image44.jpeg" alt="Stone Sculpture" class="img-responsive center-block slider-size">
+  						<div class="carousel-caption">
+  							<h3>Bust of Cecil Voss</h3>
+  							<p>Artist: Greg Duncan </p>
+  						</div>
+  					</div>
+  					<div class="item">
+  						<img src="http://hccapps.hobartcity.com.au/gis/PublicArt/9149_Small.jpg" alt="Street and side streets, North Hobart" class="img-responsive center-block slider-size">
+  						<div class="carousel-caption">
+  							<h3>Community Paving Project</h3>
+  							<p>Artist: Julie Stoneman (Community Facilitator)</p>
+  						</div>
+  					</div>
+  					<div class="item">
+  						<img src="http://hccapps.hobartcity.com.au/gis/PublicArt/image47.jpeg" alt="Lightpoles and Photography" class="img-responsive center-block slider-size">
+  						<div class="carousel-caption">
+  							<h3>Lightpoles</h3>
+  							<p>Artist: Gerhardt Mauz/Kieran Bradley </p>
+  						</div>
+  					</div>
+            <div class="item">
+  						<img src="http://hccapps.hobartcity.com.au/gis/PublicArt/Ari_Purhonen_WEB_039.jpg" alt="Beacon" class="img-responsive center-block slider-size">
+  						<div class="carousel-caption">
+  							<h3>Beacon</h3>
+  							<p>Artist: Ari Purhonen </p>
+  						</div>
+  					</div>
+  				</div>
+  			</div> <!-- End of Carousel-->
+
+			</div> <!-- End of Container -->
+		</div> <!-- End of well -->
+	</section> <!-- End call to action>
+
+    <!--Other -->
+      <div class="container">
+        <section>
+          <div class="page-header" id="map">
+            <h2>Awesome gallery section <small> with epic pictures </small> </h2>
+            </script>
+    <script type="text/javascript">
+        function selectPhoto(){
+          var file = document.getElementById('photo'.files[0]);
+          var s = 'Name: ' + photo.name;
+          var fileType = /image.*/;
+          if(!file.type.match(fileType)){
+            alert('Please upload a photo');
+          }
+        }
+        </script>
+        <fieldset>
+          <form>
+            Upload photo <input type="file" id="uploadedphoto" onChange="selectPhoto">
+          </form>
+    <!-- Google maps of urban art locations -->
+    <div class="container">
+      <section>
+        <div id="map" style="width:500px;height:400px;background:yellow"></div>
+<script>
+function myMap() {
+  var mapCanvas = document.getElementById("map");
+  var mapOptions = {
+    center: new google.maps.LatLng(-42.87936, 147.32941), zoom: 13
+  };
+  var map = new google.maps.Map(mapCanvas, mapOptions);
+
+/*Add urban art markers
+Array of markers*/
+
+var markers = [
+  {
+    coords:{lat:-42.87274312,lng:147.3194932},
+    iconImage:'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+    content:'<IMG BORDER="0" ALIGN="center" IMG WIDTH=60 SRC="http://hccapps.hobartcity.com.au/gis/PublicArt/image44.jpeg">' + ' Bust of Cecil Voss'
+  },
+  {
+    coords:{lat:-42.87335406,lng:147.3155023},
+    iconImage:'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+    content:'<IMG BORDER="0" ALIGN="center" IMG WIDTH=60 SRC="http://hccapps.hobartcity.com.au/gis/PublicArt/IMG_0003.JPG">' + ' Community Paving Project'
+  },
+  {
+    coords:{lat:-42.87248026,lng:147.3146247},
+    iconImage:'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+    content:'<IMG BORDER="0" ALIGN="center" IMG WIDTH=60 SRC="http://hccapps.hobartcity.com.au/gis/PublicArt/image47.jpeg">' + ' Lightpoles and Photography'
+  },
+  {
+    coords:{lat:-42.87390719,lng:147.3160685},
+    iconImage:'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+    content:'<IMG BORDER="0" ALIGN="center" IMG WIDTH=60 SRC="http://hccapps.hobartcity.com.au/gis/PublicArt/image48.jpeg">' + ' Tony Haigh Walk'
+  },
+  {
+    coords:{lat:-42.87367152,lng:147.315924612329},
+    iconImage:'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+    content:'<IMG BORDER="0" ALIGN="center" IMG WIDTH=60 SRC="http://hccapps.hobartcity.com.au/gis/PublicArt/image49.jpeg">' + ' Cultural Bollard'
+  },
+  {
+    coords:{lat:-42.87364565,lng:147.3158683},
+    iconImage:'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+    content:'<IMG BORDER="0" ALIGN="center" IMG WIDTH=60 SRC="http://hccapps.hobartcity.com.au/gis/PublicArt/IMG_0003.JPG">' + ' Art Pavers'
+  },
+  {
+    coords:{lat:-42.87272379,lng:147.314837},
+    iconImage:'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+    content:'<IMG BORDER="0" ALIGN="center" IMG WIDTH=60 SRC="http://hccapps.hobartcity.com.au/gis/PublicArt/image51.jpeg">' + ' Fences'
+  },
+  {
+    coords:{lat:-42.87303057,lng:147.3151985},
+    iconImage:'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+    content:'<IMG BORDER="0" ALIGN="center" IMG WIDTH=60 SRC="http://hccapps.hobartcity.com.au/gis/PublicArt/image50.jpeg">' + ' Tree Guards'
+  },
+  {
+    coords:{lat:-42.87672268,lng:147.308407},
+    iconImage:'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+    content:'<IMG BORDER="0" ALIGN="center" IMG WIDTH=60 SRC="http://hccapps.hobartcity.com.au/gis/PublicArt/image52.jpeg">' + ' Tree Sculpture'
+  },
+  {
+    coords:{lat:-42.8814424,lng:147.3363089},
+    iconImage:'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+    content:'<IMG BORDER="0" ALIGN="center" IMG WIDTH=60 SRC="http://hccapps.hobartcity.com.au/gis/PublicArt/IMG_0066.JPG">' + ' Archway'
+  },
+  {
+    coords:{lat:-42.88225239,lng:147.3351724},
+    iconImage:'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+    content:'<IMG BORDER="0" ALIGN="center" IMG WIDTH=60 SRC="http://hccapps.hobartcity.com.au/gis/PublicArt/IMG_0063.jpg">' + ' The Bernacchi Tribute: Self Portrait, Lous and Joe'
+  },
+  {
+    coords:{lat:-42.88228653,lng:147.3337098},
+    iconImage:'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+    content:'<IMG BORDER="0" ALIGN="center" IMG WIDTH=60 SRC="http://hccapps.hobartcity.com.au/gis/PublicArt/IMG_0078.JPG">' + ' Troyseas'
+  },
+  {
+    coords:{lat:-42.88163573,lng:147.3319416},
+    iconImage:'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+    content:'<IMG BORDER="0" ALIGN="center" IMG WIDTH=60 SRC="http://hccapps.hobartcity.com.au/gis/PublicArt/IMG_0071.jpg">' + ' Bright Prospect'
+  },
+  {
+    coords:{lat:-42.88295424,lng:147.3321544},
+    iconImage:'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+    content:'<IMG BORDER="0" ALIGN="center" IMG WIDTH=60 SRC="http://hccapps.hobartcity.com.au/gis/PublicArt/image34.jpeg">' + ' Mural, Kent & Kent Antiques'
+  },
+  {
+    coords:{lat:-42.91233706,lng:147.35649},
+    iconImage:'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+    content:'<IMG BORDER="0" ALIGN="center" IMG WIDTH=60 SRC="http://hccapps.hobartcity.com.au/gis/PublicArt/IMG_0059.jpg">' + ' Tidal Pools'
+  },
+  {
+    coords:{lat:-42.88633422,lng:147.3315717},
+    iconImage:'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+    content:'<IMG BORDER="0" ALIGN="center" IMG WIDTH=60 SRC="http://hccapps.hobartcity.com.au/gis/PublicArt/image33.jpeg">' + ' Tasman Monument'
+  },
+  {
+    coords:{lat:-42.88736773,lng:147.3327917},
+    iconImage:'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+    content:'<IMG BORDER="0" ALIGN="center" IMG WIDTH=60 SRC="http://hccapps.hobartcity.com.au/gis/PublicArt/image40.jpeg">' + ' Journey to Southland'
+  },
+  {
+    coords:{lat:-42.88746172,lng:147.3323408},
+    iconImage:'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+    content:'<IMG BORDER="0" ALIGN="center" IMG WIDTH=60 SRC="http://hccapps.hobartcity.com.au/gis/PublicArt/IMG_0087.JPG">' + ' Wave'
+  },
+  {
+    coords:{lat:-42.88919133,lng:147.338077},
+    iconImage:'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+    content:'<IMG BORDER="0" ALIGN="center" IMG WIDTH=60 SRC="http://hccapps.hobartcity.com.au/gis/PublicArt/image41.jpeg">' + ' Gift from the Earth'
+  },
+  {
+    coords:{lat:-42.87752379,lng:147.3358212},
+    iconImage:'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+    content:'<IMG BORDER="0" ALIGN="center" IMG WIDTH=60 SRC="http://hccapps.hobartcity.com.au/gis/PublicArt/image38.jpeg">' + ' Victoria Cross Memorial'
+  },
+  {
+    coords:{lat:-42.87880639,lng:147.3330362},
+    iconImage:'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+    content:'<IMG BORDER="0" ALIGN="center" IMG WIDTH=60 SRC="http://hccapps.hobartcity.com.au/gis/PublicArt/image23.jpeg">' + ' Wapping History Wall'
+  },
+  {
+    coords:{lat:-42.8780448,lng:147.331026},
+    iconImage:'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+    content:'<IMG BORDER="0" ALIGN="center" IMG WIDTH=60 SRC="http://hccapps.hobartcity.com.au/gis/PublicArt/image22.jpeg">' + ' Railway Roundabout Fountain'
+  },
+  {
+    coords:{lat:-42.87745031,lng:147.3270983},
+    iconImage:'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+    content:'<IMG BORDER="0" ALIGN="center" IMG WIDTH=60 SRC="http://hccapps.hobartcity.com.au/gis/PublicArt/IMG_00101.JPG">' + ' Minute Man'
+  },
+  {
+    coords:{lat:-42.87920101,lng:147.3293673},
+    iconImage:'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+    content:'<IMG BORDER="0" ALIGN="center" IMG WIDTH=60 SRC="http://hccapps.hobartcity.com.au/gis/PublicArt/Brick (2).jpg">' + ' Brick'
+  },
+  {
+    coords:{lat:-42.88059521,lng:147.3289803},
+    iconImage:'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+    content:'<IMG BORDER="0" ALIGN="center" IMG WIDTH=60 SRC="http://hccapps.hobartcity.com.au/gis/PublicArt/image16.jpeg">' + ' Hobart Rivulet Interpretaions'
+  },
+  {
+    coords:{lat:-42.88150582,lng:147.330482},
+    iconImage:'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+    content:'<IMG BORDER="0" ALIGN="center" IMG WIDTH=60 SRC="http://hccapps.hobartcity.com.au/gis/PublicArt/IMG_0095.JPG">' + ' Inspiration'
+  },
+  {
+    coords:{lat:-42.88147914,lng:147.3298209},
+    iconImage:'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+    content:'<IMG BORDER="0" ALIGN="center" IMG WIDTH=60 SRC="http://hccapps.hobartcity.com.au/gis/PublicArt/IMG_0093.JPG">' + ' Duality'
+  },
+  {
+    coords:{lat:-42.88115911,lng:147.3270346},
+    iconImage:'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+    content:'<IMG BORDER="0" ALIGN="center" IMG WIDTH=60 SRC="http://hccapps.hobartcity.com.au/gis/PublicArt/image20.jpeg">' + ' Tree Guards'
+  },
+  {
+    coords:{lat:-42.88169679,lng:147.3274553},
+    iconImage:'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+    content:'<IMG BORDER="0" ALIGN="center" IMG WIDTH=60 SRC="http://hccapps.hobartcity.com.au/gis/PublicArt/image17.jpeg">' + ' City Women'
+  },
+  {
+    coords:{lat:-42.88189016,lng:147.3273251},
+    iconImage:'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+    content:'<IMG BORDER="0" ALIGN="center" IMG WIDTH=60 SRC="http://hccapps.hobartcity.com.au/gis/PublicArt/image18.jpeg">' + ' Seats with leaning Posts'
+  },
+  {
+    coords:{lat:-42.88144384,lng:147.3259231},
+    iconImage:'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+    content:'<IMG BORDER="0" ALIGN="center" IMG WIDTH=60 SRC="http://hccapps.hobartcity.com.au/gis/PublicArt/image19.jpeg">' + ' Paving Design'
+  },
+  {
+    coords:{lat:-42.88171835,lng:147.3255966},
+    iconImage:'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+    content:'<IMG BORDER="0" ALIGN="center" IMG WIDTH=60 SRC="http://hccapps.hobartcity.com.au/gis/PublicArt/image21.jpeg">' + ' Chantale Delrue'
+  },
+  {
+    coords:{lat:-42.88304621,lng:147.3264902},
+    iconImage:'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+    content:'<IMG BORDER="0" ALIGN="center" IMG WIDTH=60 SRC="http://hccapps.hobartcity.com.au/gis/PublicArt/image2.jpeg">' + ' Hobart Rivulet Interpretations'
+  },
+  {
+    coords:{lat:-42.88689929,lng:147.3226326},
+    iconImage:'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+    content:'<IMG BORDER="0" ALIGN="center" IMG WIDTH=60 SRC="http://hccapps.hobartcity.com.au/gis/PublicArt/20141203_162834.jpg">' + ' Reaching Out'
+  },
+  {
+    coords:{lat:-42.88677813,lng:147.3281256},
+    iconImage:'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+    content:'<IMG BORDER="0" ALIGN="center" IMG WIDTH=60 SRC="http://hccapps.hobartcity.com.au/gis/PublicArt/IMG_0088.JPG">' + ' Tile'
+  },
+  {
+    coords:{lat:-42.88145651,lng:147.3274687},
+    iconImage:'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+    content:'<IMG BORDER="0" ALIGN="center" IMG WIDTH=60 SRC="http://hccapps.hobartcity.com.au/gis/PublicArt/image1.jpeg">' + ' Paving design'
+  },
+  {
+    coords:{lat:-42.88296875,lng:147.3265788},
+    iconImage:'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+    content:'<IMG BORDER="0" ALIGN="center" IMG WIDTH=60 SRC="http://hccapps.hobartcity.com.au/gis/PublicArt/image2.jpeg">' + ' Hobart Rivulet Interpretations'
+  },
+  {
+    coords:{lat:-42.88148995,lng:147.3276699},
+    iconImage:'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+    content:'<IMG BORDER="0" ALIGN="center" IMG WIDTH=60 SRC="http://hccapps.hobartcity.com.au/gis/PublicArt/image14.jpeg">' + ' Hobart Rivulet Interpretations'
+  },
+  {
+    coords:{lat:-42.88197809,lng:147.3285544},
+    iconImage:'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+    content:'<IMG BORDER="0" ALIGN="center" IMG WIDTH=60 SRC="http://hccapps.hobartcity.com.au/gis/PublicArt/image4.jpeg">' + ' Fish out of water'
+  },
+  {
+    coords:{lat:-42.88191257,lng:147.328409},
+    iconImage:'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+    content:'<IMG BORDER="0" ALIGN="center" IMG WIDTH=60 SRC="http://hccapps.hobartcity.com.au/gis/PublicArt/image5.jpeg">' + ' Thompson the Dog'
+  },
+  {
+    coords:{lat:-42.88194233,lng:147.328481},
+    iconImage:'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+    content:'<IMG BORDER="0" ALIGN="center" IMG WIDTH=60 SRC="http://hccapps.hobartcity.com.au/gis/PublicArt/image6.jpeg">' + ' Maurice the Pig'
+  },
+  {
+    coords:{lat:-42.8815223,lng:147.3277722},
+    iconImage:'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+    content:'<IMG BORDER="0" ALIGN="center" IMG WIDTH=60 SRC="http://hccapps.hobartcity.com.au/gis/PublicArt/IMG_0098.JPG">' + ' Street Signs - Wellington Walk'
+  },
+  {
+    coords:{lat:-42.88177689,lng:147.3291424},
+    iconImage:'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+    content:'<IMG BORDER="0" ALIGN="center" IMG WIDTH=60 SRC="http://hccapps.hobartcity.com.au/gis/PublicArt/IMG_0092.JPG">' + ' Street Signs - Purdys Mart'
+  },
+  {
+    coords:{lat:-42.88151833,lng:147.3294773},
+    iconImage:'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+    content:'<IMG BORDER="0" ALIGN="center" IMG WIDTH=60 SRC="http://hccapps.hobartcity.com.au/gis/PublicArt/IMG_0091.JPG">' + ' Street Signs - Kemp Street'
+  },
+  {
+    coords:{lat:-42.8808863,lng:147.3293201},
+    iconImage:'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+    content:'<IMG BORDER="0" ALIGN="center" IMG WIDTH=60 SRC="http://hccapps.hobartcity.com.au/gis/PublicArt/IMG_0094.JPG">' + ' Street Signs'
+  },
+  {
+    coords:{lat:-42.88091636,lng:147.3276754},
+    iconImage:'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+    content:'<IMG BORDER="0" ALIGN="center" IMG WIDTH=60 SRC="http://hccapps.hobartcity.com.au/gis/PublicArt/IMG_0097.JPG">' + ' Street Signs - Bank Arcade'
+  },
+  {
+    coords:{lat:-42.88136247,lng:147.327423},
+    iconImage:'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+    content:'<IMG BORDER="0" ALIGN="center" IMG WIDTH=60 SRC="http://hccapps.hobartcity.com.au/gis/PublicArt/image8.jpeg">' + ' Street Signs'
+  },
+  {
+    coords:{lat:-42.88160304,lng:147.3279462},
+    iconImage:'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+    content:'<IMG BORDER="0" ALIGN="center" IMG WIDTH=60 SRC="http://hccapps.hobartcity.com.au/gis/PublicArt/IMG_0099.JPG">' + ' Street Signs - Soundys Lane'
+  },
+  {
+    coords:{lat:-42.88185244,lng:147.3283056},
+    iconImage:'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+    content:'<IMG BORDER="0" ALIGN="center" IMG WIDTH=60 SRC="http://hccapps.hobartcity.com.au/gis/PublicArt/image9.jpeg">' + ' Granite Stories'
+  },
+  {
+    coords:{lat:-42.88182008,lng:147.3283718},
+    iconImage:'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+    content:'<IMG BORDER="0" ALIGN="center" IMG WIDTH=60 SRC="http://hccapps.hobartcity.com.au/gis/PublicArt/image11.jpeg">' + ' police box mural'
+  },
+  {
+    coords:{lat:-42.88203349,lng:147.3287326},
+    iconImage:'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+    content:'<IMG BORDER="0" ALIGN="center" IMG WIDTH=60 SRC="http://hccapps.hobartcity.com.au/gis/PublicArt/image10.jpeg">' + ' Wind Shields'
+  },
+  {
+    coords:{lat:-42.88128414,lng:147.3283171},
+    iconImage:'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+    content:'<IMG BORDER="0" ALIGN="center" IMG WIDTH=60 SRC="http://hccapps.hobartcity.com.au/gis/PublicArt/image12.jpeg">' + ' Paving design'
+  },
+  {
+    coords:{lat:-42.8812983,lng:147.3283658},
+    iconImage:'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+    content:'<IMG BORDER="0" ALIGN="center" IMG WIDTH=60 SRC="http://hccapps.hobartcity.com.au/gis/PublicArt/image12.jpeg">' + ' Terrazo star'
+  },
+  {
+    coords:{lat:-42.87511022,lng:147.3194192},
+    iconImage:'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+    content:'<IMG BORDER="0" ALIGN="center" IMG WIDTH=60 SRC="http://hccapps.hobartcity.com.au/gis/PublicArt/IMG_0006.JPG">' + ' Jo & Edie'
+  },
+  {
+    coords:{lat:-42.87506099,lng:147.3195518},
+    iconImage:'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+    content:'<IMG BORDER="0" ALIGN="center" IMG WIDTH=60 SRC="http://hccapps.hobartcity.com.au/gis/PublicArt/IMG_0006.JPG">' + ' Fred'
+  },
+
+
+];
+
+//Loop through markers
+for(var i=0;i< markers.length;i++){
+  //Add markers via a loop
+  addMarker(markers[i]);
+}
+
+  //Add Marker function
+  function addMarker(props){
+    var marker = new google.maps.Marker({
+      position:props.coords,
+      map:map,
+      icon:props.iconImage
+    });
+    //Check for custom icon
+    if(props.iconImage){
+      //Set icon image
+      marker.setIcon(props.iconImage);
+    }
+    if(props.content){
+      var infoWindow = new google.maps.InfoWindow({
+        content: props.content
+      });
+
+      marker.addListener('click', function(){
+        infoWindow.open(map, marker);
+      });
+    }
+  }
+}
+        </script>
+      </section>
+    </div>
+  </div>
+</section>
+</div>
+
+<script>
+    $.getJSON('urban_art_data.json', function(data) {
+    alert(data);
+});
+</script>
+
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDO3eY92e9A1W4Gb5dPsSuQfQy0E5pgR4Y&callback=myMap"></script>
+    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+        <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+</body>
+</html>
